@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main() {
+    char vehicleType;
+    int distance;
+    float baseCharge, discount = 0, totalTax;
+    printf("Enter Vehicle Type (C for Car, T for Truck, B for Bus): ");
+    scanf(" %c", &vehicleType);  
+    printf("Enter Distance Traveled (in km): ");
+    scanf("%d", &distance);
+    if (vehicleType == 'C' || vehicleType == 'c') {
+        baseCharge = 5 * distance;
+    } else if (vehicleType == 'T' || vehicleType == 't') {
+        baseCharge = 10 * distance;
+        if (distance > 500) discount = 0.10 * baseCharge; 
+    } else if (vehicleType == 'B' || vehicleType == 'b') {
+        baseCharge = 8 * distance;
+        if (distance > 300) discount = 0.05 * baseCharge; 
+    } else {
+        printf("Invalid vehicle type.\n");
+        return 1;
+    }
+    totalTax = baseCharge - discount;
+    printf("\nVehicle Type: %c\n", vehicleType);
+    printf("Distance Traveled: %d km\n", distance);
+    printf("Base Charge:%.2f\n", baseCharge);
+    printf("Discount:%.2f\n", discount);
+    printf("Total Toll Tax:%.2f\n", totalTax);
+    return 0;
+}

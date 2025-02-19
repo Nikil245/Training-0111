@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int calculatebill(int days,int cost){
+    if(days>7){
+        cost=cost-(float)cost*0.05;
+        return cost;
+    }else{
+       
+        return cost;
+    }
+}
+
+void main(){
+    char name;
+    int  ward_type;
+    int days;
+
+    int cost;
+     printf("Enter the patient name:");
+    scanf("%s",&name);
+        printf("Enter total number of dats admitted:");
+    scanf("%d",&days);
+    printf("Select ward type.\n1.General ward 1000 rupees\n2.Semi_private 2000 rupees\n3.Private 5000 rupees:");
+    scanf("%d",&ward_type);
+    switch(ward_type){
+        case 1:if(ward_type==1){
+            cost=days*1000;
+        }
+        case 2:if(ward_type==2){
+            cost=2000*days;
+        }
+        case 3:if(ward_type==3){
+            cost=5000*days;
+        }
+    }
+
+    float resultbill=calculatebill(days,cost);
+    printf("Total bill %f",resultbill);
+}

@@ -19,7 +19,7 @@ int main(){
     readEmp(Employees,Empcount);
     DispEmp(Employees,Empcount);
     Employee Highest_salary_employee=find_Highest_salary(Employees,Empcount);
-    printf("Employee with highest salary %s,%.2f,(%s)\n",Highest_salary_employee.name,
+    printf("\nEmployee with highest salary:\nName:%s\nSalary:%.2f\nDepartment:(%s)\n",Highest_salary_employee.name,
     Highest_salary_employee.salary,Highest_salary_employee.dept);
     return 0;
 }

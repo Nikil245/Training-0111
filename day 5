@@ -46,7 +46,7 @@ void readstudent(Student std[], int count) {
 void display(const Student std[], int count) {
     printf("\nStudent details:\n");
     for (int i=0;i<count;i++){
-        printf("\n--------------------------------------\n")
+        printf("\n--------------------------------------\n");
         printf("Id: %d\nName: %s\nMarks: %d %d %d %d\nTotal Marks: %d\nPercentage: %.2f\nGrade: %c\n",
                std[i].rollNo,std[i].name,std[i].maths,std[i].physics,std[i].chemistry,std[i].cs,
                std[i].totalMarks,std[i].percentage,std[i].grade);

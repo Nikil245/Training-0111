@@ -15,20 +15,56 @@ void main(){
     int count;
     printf("Enter the number of student:");
     scanf("%d",&count);
+    readstudent(filename,std,count);
+    savestudent(std[],count);
+    displayfile(std[],count)
+    display(std,count);
+
+
 }
 
-void readstudent(const char*filename,Student std[],int*count){
-    filename=fopen("Students.txt","r");
-    if(filename==NULL){
-        printf("Cannot read file");
-        return;
-    }
+void readstudent(Student std[],int*count){
+    // filename=fopen("Students.txt","r");
+    // if(filename==NULL){
+    //     printf("Cannot read file");
+    //     return;
+    // }
     pritnf("Enter the %d students details:",count);
     for(int i=0;i<count;i++){
         printf("Enter student Id, Name, 4 sub marks:");
-        fscanf("%d%s%d%d%d%d",&std[i].rollNo,std[i].name,&std[i].maths,
+        scanf("%d%s%d%d%d%d",&std[i].rollNo,std[i].name,&std[i].maths,
             &std[i].physics,&std[i].chemistry,&std[i].cs);
     }
-    fclose(filename);
+    // fclose(filename);
 }
 
+void display(const Student std[],int count){
+    printf("Student details:");
+    for(int i=0;i<count;i++){
+        printf("Id-%d\n Name-%s\n Marks-%d\t%d\t%d\t%d\n",std[i].rollNo,std[i].name,
+            std[i].maths,std[i].physics,std[i].chemistry,std[i].cs);
+    }return;
+}
+
+void savestudent(Student std[],int count){
+    FILE*file=fopen("Student_details.txt","w");
+    if(filename==NULL){
+        printf("Cannot read file");
+        return;
+        }
+        for(int i=0;i<count;i++){
+        fprintf(file,"%d%s%d%d%d%d",std[i].rollNo,std[i].name,std[i].maths,
+            std[i].physics,std[i].chemistry,std[i].cs);
+}fclose(file);
+}
+void displayfile(Student std[],int count){
+    FILE*file=fopen("Student_details.txt","r");
+    if(filename==NULL){
+        printf("Cannot read file");
+        return;
+        }
+        for(int i=0;i<count;i++){
+            fscanf(file,"%d%s%d%d%d%d",&std[i].rollNo,std[i].name,&std[i].maths,
+                &std[i].physics,&std[i].chemistry,&std[i].cs);
+    }fclose(file);
+}
